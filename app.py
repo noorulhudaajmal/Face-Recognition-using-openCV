@@ -130,7 +130,7 @@ update_data()
 
 
 
-st.markdown(title_temp.format('#66999B','white' , "PEOPLE DETECTION USING FACIAL RECOGNITION"),unsafe_allow_html=True)
+st.markdown(title_temp.format('#66999B','white' , "ATTENDANCE USING FACIAL RECOGNITION"),unsafe_allow_html=True)
 st.write("")
 st.write("")
 
@@ -175,7 +175,9 @@ if selected == "Detect Presence":
         # Convert the file to an opencv image.
         file_bytes = np.asarray(bytearray(image.read()), dtype=np.uint8)
         opencv_image = cv.imdecode(file_bytes, 1)
-        st.image(get_results(opencv_image) , channels="BGR")
+        result = get_results(opencv_image)
+        # result = cv.resize(result,(600,400))
+        st.image(result , channels="BGR")
 
 if selected == "LIVE People Dectect":
 
@@ -184,7 +186,7 @@ if selected == "LIVE People Dectect":
 
     # st.write("### START DETECTION USING LIVE CAMERA")
     st.write("") ;st.write("") ;st.write("") ;
-    start = st.checkbox("Initiate")
+    start = st.checkbox("TURN ON LIVE STREAMING")
     FRAME_WIN = st.image([])
     cam = cv.VideoCapture(1)
 
